@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { TOKEN_COOKIE } from './lib/auth';
 
-// Gates every dashboard screen behind a session. /login, the standalone
-// clinician view (screen 14 — deliberately no BioAro account needed),
-// the email preview, and Next's own API routes stay open.
-const PUBLIC_PATHS = ['/login', '/clinician', '/email-preview', '/api'];
+// Gates every dashboard screen behind a session. /login, /register, the
+// standalone clinician view (screen 14 — deliberately no BioAro account
+// needed), the email preview, and Next's own API routes stay open.
+const PUBLIC_PATHS = ['/login', '/register', '/clinician', '/email-preview', '/api'];
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;

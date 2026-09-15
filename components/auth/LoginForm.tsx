@@ -88,6 +88,13 @@ export function LoginForm() {
         </form>
       </div>
 
+      <p className="mt-4 text-center text-sm text-ink-900/60">
+        New here?{' '}
+        <a href="/register" className="font-medium text-status-optimal underline">
+          Create an account
+        </a>
+      </p>
+
       <p className="mt-4 text-center text-xs text-ink-900/40">
         This signs in against the bioaro-dashboard-api backend. If{' '}
         <code className="mx-1 rounded bg-cream-line px-1 py-0.5">NEXT_PUBLIC_API_URL</code>

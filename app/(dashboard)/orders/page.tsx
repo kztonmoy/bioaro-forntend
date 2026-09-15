@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { getOrders, OrderView } from '@/lib/api';
 import { CreateOrderForm } from '@/components/orders/CreateOrderForm';
+import { MarkPaidButton } from '@/components/orders/MarkPaidButton';
 
 const STATUS_STYLE: Record<string, string> = {
   PAID: 'bg-status-optimalBg text-status-optimal',
@@ -75,6 +76,9 @@ export default async function OrdersPage() {
               )}
               {order.invoiceUrl && (
                 <Button href={order.invoiceUrl} variant="secondary">Invoice</Button>
+              )}
+              {order.paymentStatus === 'PAYMENT_PENDING' && !order.id.startsWith('sample-') && (
+                <MarkPaidButton paymentId={order.id} />
               )}
             </div>
 

@@ -2,6 +2,7 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { Card } from '@/components/ui/Card';
 import { getKits, KitView } from '@/lib/api';
 import { ActivateKitButton } from '@/components/kits/ActivateKitButton';
+import { GenerateReportButton } from '@/components/kits/GenerateReportButton';
 import { Button } from '@/components/ui/Button';
 
 // Fallback sample — used only when the live API returned nothing
@@ -116,6 +117,12 @@ export default async function KitsPage() {
                 <p className="text-xs text-ink-900/60">You&apos;ll find the ID inside the box lid.</p>
               </div>
               <ActivateKitButton itemId={kit.itemId} />
+            </div>
+          )}
+
+          {!kit.itemId.startsWith('sample-') && (
+            <div className="mt-3 flex justify-end">
+              <GenerateReportButton itemId={kit.itemId} />
             </div>
           )}
         </Card>
